@@ -10,10 +10,10 @@ import androidx.compose.ui.unit.dp
 import com.example.accountlisttask.data.AccountStatement
 
 @Composable
-fun AccountStatementList(statements: List<AccountStatement>, modifier: Modifier = Modifier) {
+fun AccountStatementList(statements: List<AccountStatement>, onItemClick: (Int) -> Unit, modifier: Modifier = Modifier) {
     LazyColumn(modifier) {
         itemsIndexed(statements) { index, statement ->
-            AccountStatementCard(statement)
+            AccountStatementCard(statement, onClick = { onItemClick(statement.id) })
             HorizontalDivider(thickness = 3.dp, color = Color.Black)
         }
     }

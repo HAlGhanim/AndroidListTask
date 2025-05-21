@@ -11,8 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.accountlisttask.composables.AccountStatementList
-import com.example.accountlisttask.data.getDummyStatements
+import com.example.accountlisttask.composables.AccountStatementNavHost
 import com.example.accountlisttask.ui.theme.AccountListTaskTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,10 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             AccountListTaskTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    AccountStatementList(
-                        statements = getDummyStatements(),
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    AccountStatementNavHost(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
